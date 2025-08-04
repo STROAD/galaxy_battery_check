@@ -16,8 +16,8 @@ battery_info = {
 }
 
 for line in battery_log.splitlines():
-
     match = re.match(r"^\s*([^:]+):\s*(.*)$", line)
+
     if match:
         key = match.group(1).strip()
 
@@ -25,6 +25,9 @@ for line in battery_log.splitlines():
             value = match.group(2).strip(" []")
             battery_info[key] = value
 
-print(f"battery_info = {battery_info}")
+print("===== battery info =====")
+print(f"Battery Life: {battery_info['mSavedBatteryAsoc']}%")
+print(f"Battery Cycle Count: {int(battery_info['mSavedBatteryUsage']) / 100}")
+print(f"Battery Cycle Count(Calculated): ")
 
 client.remote_disconnect()
