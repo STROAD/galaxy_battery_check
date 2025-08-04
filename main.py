@@ -26,3 +26,5 @@ for line in battery_log.splitlines():
             battery_info[key] = value
 
 print(f"battery_info = {battery_info}")
+
+client.remote_disconnect()
