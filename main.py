@@ -5,10 +5,10 @@ from ppadb.client import Client as AdbClient
 
 
 battery_info = {
-    "mSavedBatteryAsoc": "None",
-    "mSavedBatteryUsage": "None",
-    "Charge counter": "None",
-    "level": "None",
+    "mSavedBatteryAsoc": None,
+    "mSavedBatteryUsage": None,
+    "Charge counter": None,
+    "level": None,
 }
 device_typical_capacity = 4900
 
@@ -58,7 +58,7 @@ for line in battery_log.splitlines():
 
     if match:
         key = match.group(1).strip()
-        if key in battery_info and battery_info[key] == "None":
+        if key in battery_info and battery_info[key] == None:
             value = match.group(2).strip(" []")
             battery_info[key] = value
 
