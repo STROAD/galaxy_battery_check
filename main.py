@@ -46,6 +46,7 @@ def calc_battery_info(battery_info, device_typical_capacity):
 script_dir = os.path.dirname(os.path.abspath(__file__))
 platform_tools_path = os.path.join(script_dir, "platform-tools")
 os.chdir(platform_tools_path)
+subprocess.run(["adb", "kill-server"], check=True)
 subprocess.run(["adb", "start-server"], check=True)
 
 client = AdbClient(host="127.0.0.1", port=5037)  # Default is "127.0.0.1" and 5037
