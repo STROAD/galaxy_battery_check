@@ -54,6 +54,9 @@ devices = client.devices()[0]
 battery_log = devices.shell("dumpsys battery")
 
 for line in battery_log.splitlines():
+    if None not in battery_info.values():
+        break
+
     match = re.match(r"^\s*([^:]+):\s*(.*)$", line)
 
     if match:
